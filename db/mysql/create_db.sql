@@ -2,7 +2,7 @@ CREATE DATABASE `goa_college` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 USE `goa_college`;
 
 CREATE TABLE `course` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `course_name` varchar(50) NOT NULL,
   `course_summary` varchar(200) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -21,7 +21,7 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `course_student` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `course_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `score` varchar(20) DEFAULT NULL,
