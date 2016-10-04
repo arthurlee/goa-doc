@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"github.com/arthurlee/goa"
 )
 
 func main() {
-	fmt.Println("Hello, world!")
+	goa.Serve()
 }
