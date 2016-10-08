@@ -1,4 +1,6 @@
 ---
+server:
+  address: ":5400"
 database:
   type: mysql
   url: goa:Goa$1234@/goa_college
