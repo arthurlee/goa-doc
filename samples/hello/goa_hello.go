@@ -1,8 +1,8 @@
 package main
 
 import (
-	"./resources"
 	"github.com/arthurlee/goa"
+	"github.com/arthurlee/goa-doc/samples/hello/resources"
 )
 
 func main() {

@@ -2,8 +2,9 @@ package course
 
 import (
 	"encoding/json"
+	"github.com/arthurlee/goa-doc/samples/hello/models"
 	"github.com/arthurlee/goa/database"
-	"log"
+	//"log"
 	"net/http"
 )
 
@@ -22,44 +23,21 @@ func (res *GoaBaseRes) setOK() {
 	res.Message = "OK"
 }
 
-type Course struct {
-	Id      int    `json:"courseId"`
-	Name    string `json:"courseName"`
-	Summary string `json:"courseSummary"`
-}
-
 type CourseListRes struct {
 	GoaBaseRes
-	Courses []Course `json:"course_list"`
+	Courses []models.Course `json:"course_list"`
 }
 
 func List(w http.ResponseWriter, r *http.Request) {
 	resCourseList := CourseListRes{}
-	resCourseList.setOK()
 
-	rows, err := database.Db.Query("SELECT id, course_name, course_summary from course")
-	if err == nil {
-		columns, err := rows.Columns()
-		if err == nil {
-			log.Println(columns)
-		} else {
-			log.Fatal(err)
-		}
-
-		resCourseList.Courses = make([]Course, 0, 10)
-
-		for rows.Next() {
-			course := Course{}
-			err = rows.Scan(&course.Id, &course.Name, &course.Summary)
-			if err != nil {
-				log.Fatal(err)
-				break
-			}
-
-			resCourseList.Courses = append(resCourseList.Courses, course)
-		}
-	} else {
+	courseList := models.NewCourseList()
+	err := database.GetList(courseList)
+	if err != nil {
 		resCourseList.setError("1", err.Error())
+	} else {
+		resCourseList.Courses = courseList.Courses
+		resCourseList.setOK()
 	}
 
 	w.Header().Set("Content-Type", "application/json")
