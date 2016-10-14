@@ -34,6 +34,16 @@ func (me *Course) GetUpdater() database.DbUpdater {
 	return updater
 }
 
+func (me *Course) GetDeleter() database.DbDeleter {
+	deleter := database.DbDeleter{}
+
+	deleter.SetTableName("course")
+	deleter.WhereEqualString("course_name", me.Name)
+	deleter.Done()
+
+	return deleter
+}
+
 type CourseList struct {
 	Courses []Course
 }

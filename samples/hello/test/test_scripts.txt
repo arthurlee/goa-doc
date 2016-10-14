@@ -2,3 +2,5 @@ curl http://127.0.0.1:5400/ | jq .
 curl http://127.0.0.1:5400/course/list | jq .
 curl http://127.0.0.1:5400/course/create -d "name=abc" -d "summary=basic" | jq .
 curl http://127.0.0.1:5400/course/update -d "name=abc" -d "summary=basic2" | jq .
+curl http://127.0.0.1:5400/course/delete -d "name=abc" | jq .
+

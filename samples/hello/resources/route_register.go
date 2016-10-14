@@ -10,4 +10,5 @@ func Register() {
 	route.Get("/course/list", course.List)
 	route.Post("/course/create", course.Create)
 	route.Post("/course/update", course.Update)
+	route.Post("/course/delete", course.Delete)
 }
