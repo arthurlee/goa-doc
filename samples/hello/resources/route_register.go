@@ -9,4 +9,5 @@ func Register() {
 	route.Get("/", HandleHello)
 	route.Get("/course/list", course.List)
 	route.Post("/course/create", course.Create)
+	route.Post("/course/update", course.Update)
 }

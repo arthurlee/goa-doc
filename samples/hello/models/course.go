@@ -23,6 +23,17 @@ func (me *Course) GetInserter() database.DbInserter {
 	return inserter
 }
 
+func (me *Course) GetUpdater() database.DbUpdater {
+	updater := database.DbUpdater{}
+
+	updater.SetTableName("course")
+	updater.AddStringField("course_summary", me.Summary)
+	updater.WhereEqualString("course_name", me.Name)
+	updater.Done()
+
+	return updater
+}
+
 type CourseList struct {
 	Courses []Course
 }
