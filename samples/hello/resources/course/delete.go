@@ -3,12 +3,12 @@ package course
 import (
 	"github.com/arthurlee/goa-doc/samples/hello/models"
 	"github.com/arthurlee/goa/database"
-	"github.com/arthurlee/goa/route"
+	"github.com/arthurlee/goa/server"
 	"log"
 	"strings"
 )
 
-func Delete(res *route.GoaResponse) {
+func Delete(res *server.GoaResponse) {
 	name := strings.Join(res.Form["name"], "")
 
 	if len(name) == 0 {

@@ -3,12 +3,12 @@ package course
 import (
 	"github.com/arthurlee/goa-doc/samples/hello/models"
 	"github.com/arthurlee/goa/database"
-	"github.com/arthurlee/goa/route"
+	"github.com/arthurlee/goa/server"
 	"log"
 	"strings"
 )
 
-func Update(res *route.GoaResponse) {
+func Update(res *server.GoaResponse) {
 	name := strings.Join(res.Form["name"], "")
 	summary := strings.Join(res.Form["summary"], "")
 

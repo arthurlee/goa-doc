@@ -1,10 +1,10 @@
 package resources
 
 import (
-	"github.com/arthurlee/goa/route"
+	"github.com/arthurlee/goa/server"
 )
 
-func HandleHello(res *route.GoaResponse) {
+func HandleHello(res *server.GoaResponse) {
 	person := struct {
 		Name string `json:"name", db:"pk"`
 		Age  int    `json:"age"`
