@@ -4,8 +4,9 @@ import (
 	"github.com/arthurlee/goa-doc/samples/hello/models"
 	"github.com/arthurlee/goa/database"
 	"github.com/arthurlee/goa/server"
-	//"log"
 )
+
+// http http://127.0.0.1:5400/course/list
 
 type CourseListRes struct {
 	server.GoaBaseRes

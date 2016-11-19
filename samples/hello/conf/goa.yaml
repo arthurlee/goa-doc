@@ -4,3 +4,8 @@ server:
 database:
   type: mysql
   url: goa:Goa$1234@/goa_college
+logger:
+  console: true
+  dir: logs
+  filename: app.log
+  level: debug
